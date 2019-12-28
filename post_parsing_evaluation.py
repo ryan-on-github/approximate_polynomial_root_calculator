@@ -11,7 +11,7 @@ from term_parsing_module_v1 import *
 class PolyTerm:
     """
     The values of interval_lower_bound and interval_upper_bound ought to be capable of changing, or updating,
-    in order to re-evaluate terms multiple times their variables representing new values in each new iteration.
+    in order to re-evaluate terms multiple times with their variables representing new values in each new iteration.
     """
 
     def __init__(self, term_elements_list, interval_lower_bound, interval_upper_bound):
