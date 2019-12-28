@@ -114,10 +114,7 @@ class TermElements:
         def exponent_value(self):
             del self._exponent_value
 
-      # Perhaps post_parsing_evaluator could be implemented concurrently with term_parsing_func in order to
-      # assign the parsed values to class attributes, and to be able to assign kinds of pseudo-metadata, like boolean values
-      # corresponding to the presence or absence of a kind of term element, to each class-instance.
-
+            
     def term_parser(self, term):
         """
         A function to convert terms, extracted from the user-entered polynomial, into lists of elements of terms.
