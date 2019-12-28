@@ -21,10 +21,10 @@ class TermElements:
     def term_parser(self, term):
         """
         A function to convert terms, extracted from the user-entered polynomial, into lists of elements of terms.
-        The function will return a list of 'term elements' extrapolated from the argument to the function.
+        The function will return a list of 'term elements' extrapolated from the argument of the function.
 
         The argument corresponding to the "term" parameter is intended to be the "term" data attribute of the class
-        instance that the method is being invoked from.
+        instance from which the method is being invoked.
         """
 
         term_items = []  # list intended to contain term elements after parsing
@@ -241,8 +241,3 @@ class ElementExponent(TermElements):
     @exponent_value.deleter
     def exponent_value(self):
         del self._exponent_value
-
-
-  # Perhaps post_parsing_evaluator could be implemented concurrently with term_parsing_func in order to
-  # assign the parsed values to class attributes, and to be able to assign kinds of pseudo-metadata, like boolean values
-  # corresponding to the presence or absence of a kind of term element, to each class-instance.
