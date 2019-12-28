@@ -31,7 +31,7 @@ class PolyTerm:
     def evaluate(self, variable_value):
         """
         Values of coefficients and exponents can be created by concatenating strings of number-characters
-        and converting the string into integer or floating-point value, using int() or float().
+        and converting the string into integer type or floating-point type, using int() or float().
 
         Evaluation of terms ought to be in accordance with the order of operations, P.E.M.D.A.S..
         """
