@@ -7,37 +7,40 @@ import expression_parsing_func
 import term_parsing_module_v1
 
 
-def approx_root_finder(poly_expr, a, b, TOL, Nmax):
+def approx_root_finder(poly_expr, interval_lowerb, interval_upperb, error_tol, iter_max):
     """
     A function utilizing bisection-search to find a root of a polynomial.
 
-    poly_expr is the polynomial being analyzed; a is the interval's lower endpoint;
-    b is the interval's upper endpoint; TOL is the error tolerance of the approximation;
-    Nmax is the time-limit creator of the program.
+    poly_expr is the polynomial being analyzed;
+    interval_lowerb is the interval's lower endpoint;
+    interval_upperb is the interval's upper endpoint;
+    error_tol is the error tolerance of the approximation;
+    iter_max is the time-limit creator of the program.
 
-    a and b must be floating-point type, or be converted to floating-point type. TOL and Nmax must be integer type
+    interval_lowerb and interval_upperb must be floating-point type, or be converted to floating-point type.
+    error_tol and iter_max must be integer type
     """
 
-    a = float(a)  # a must be floating-point type
-    b = float(b)  # b must be floating-point type
+    interval_lowerb = float(interval_lowerb)  # a must be floating-point type
+    interval_upperb = float(interval_upperb)  # b must be floating-point type
 
     n = 1
-    while n <= Nmax:  # iteration limit to prevent infinite iteration
-        c = (a + b) / 2  # mid-point
-        max_error = (abs(b - a))/2  # approximate maximum error
-        if c == 0 or max_error <= TOL:  # either the root is found or the maximum error is tolerable
+    while n <= iter_max:  # iteration limit to prevent infinite iteration
+        mid = (interval_lowerb + interval_upperb) / 2  # mid-point
+        max_error = (abs(interval_upperb - interval_lowerb))/2  # approximate maximum error
+        if mid == 0 or max_error <= error_tol:  # either the root is found or the maximum error is tolerable
             print("Sufficient root found:", end = " ")
-            print(c)  # The value is printed to the display
-            return c  # The value is returned for further use
+            print(mid)  # The value is printed to the display
+            return mid  # The value is returned for further use
 
-        if user_polynomial(c) * user_polynomial(a) >= 0:
-            a = c
+        if poly_expr(mid) * poly_expr(interval_lowerb) >= 0:
+            interval_lowerb = mid
         else:
-            b = c
+            interval_upperb = mid
 
         n = n + 1
 
-    if n > Nmax:  # the condition of the iteration number reaching its maximum
+    if n > iter_max:  # the condition of the iteration number reaching its maximum
         print("It appears that either no root exists within the given interval "
               "or the iteration limit was set too low and a root could not be found within the given time constraints."
               "\n"
