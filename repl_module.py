@@ -1,17 +1,6 @@
 
   # entire while-loop cmd-line prompt and input-parser
 
-  # def approx_root_finder(poly_expr, a, b, TOL, Nmax):
-  #     """
-  #     A function utilizing bisection-search to find a root of a polynomial.
-  #
-  #     poly_expr is the polynomial being analyzed; a is the interval's lower endpoint;
-  #     b is the interval's upper endpoint; TOL is the error tolerance of the approximation;
-  #     Nmax is the time-limit creator of the program.
-  #
-  #     a and b must be floating-point type, or be converted to floating-point type. TOL and Nmax must be integer type
-  #     """
-
 import re
 
 
